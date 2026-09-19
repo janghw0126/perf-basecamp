@@ -12,7 +12,7 @@ const Search = lazy(async () => await import('./pages/Search/Search'));
 const App = () => {
   return (
     <Suspense fallback={<div>로딩중</div>}>
-      <Router>
+      <Router basename={process.env.NODE_ENV === 'production' ? '/perf-basecamp' : undefined}>
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />} />
