@@ -21,6 +21,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html'
     }),
+    // GitHub Pages는 SPA fallback이 없어 /search 직접 접근 시 404.html로 앱을 띄운다
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename: '404.html'
+    }),
     new CopyWebpackPlugin({
       patterns: [{ from: './public', to: './public' }]
     }),
